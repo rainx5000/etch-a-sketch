@@ -7,6 +7,17 @@ task-1 --Create a 16x16 grid using divs--
 
   -make sure the border does not resize the containers
 
+  grid-template-rows: repeat(100, 50px); --this will create 100 rows
+  we will use this to create our rows and columns 
+
+  we will create a function called generateGrid(x) 
+  it will take a number as an argument - we will take that number, and multiply to itself, the result will be how many times we will create a div(pixel);
+  each pixel will have a width and a height worth 1 of the number of pixels in a row for example:
+    16 pixels in a row
+
+      1/16f is the size
+
+
 
 task-2 -- set up a hover effect where if your mouse goes over the pixel it would color it
 

@@ -10,13 +10,65 @@ body {
 .main {
   display: flex;
   background-color: #3C6E71;
-  width: 70vw;
+  width: fit-content;
   margin: 10vh 10vw;
 }
 .controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 40vh;
   background-color: #353535;
   width: 12vw;
   color: white;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.game-container {
+  padding: 0px 0px 5vh 5vw;
+}
+.clear-btn {
+  background-color: rgb(217, 217, 217);
+  width: fit-content;
+  padding: 1vh;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: background-color .1s, color .1s;
+}
+.clear-btn:hover {
+  background-color: rgb(40, 75, 99);
+  color: white;
+  cursor: pointer;
+}
+
+.rainbow-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+.rainbow-btn-label {
+  background: linear-gradient(0.25turn, red, green, blue, orange, purple, pink, yellow, red, orange, green, brown, pink);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0px 0px 2px rgb(255, 255, 255);
+}
+
+.range-container, 
+.custom-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.range-label, 
+.custom-btn-label {
+  margin-bottom: 1rem;
+}
+
+.color-input {
+  height: 2rem;
+  width: 6rem;
 }
 .game-container {
   text-align: center;

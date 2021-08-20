@@ -1,24 +1,34 @@
 const gridContainer = document.querySelector(".grid-container");
 
-generateGrid(50);
+generateGrid(25);
 
+
+let allPixels = document.querySelector(".grid-container").children;
+let allPixelsArray = Array.from(allPixels);
 const clearBtn = document.querySelector(".clear-btn");
-const allPixels = document.querySelectorAll(".pixel");
-const allPixelsArray = Array.from(allPixels);
+const range = document.querySelector(".range-input");
+const rangeLabel = document.querySelector(".range-label");
+let color = "black";
 
-
-penColor("red")
 
 clearBtn.addEventListener("click", (e) => {
   allPixelsArray.forEach(pixel => pixel.style.backgroundColor = "white")
 })
 
+range.addEventListener("change", (e) => {
+  rangeLabel.textContent = range.value;
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
+  generateGrid(range.value);
+  load();
+})
 
+load();
 
+function load() {
+  allPixelsArray = Array.from(allPixels);
 
-
-
-function penColor(color) {
   allPixelsArray.forEach(pixel => {
     pixel.addEventListener("mousedown", (e) => {
       e.preventDefault();
@@ -33,7 +43,11 @@ function penColor(color) {
   const eventHandler = function(e) {
     e.target.style.backgroundColor = color;
   }
+  
 }
+
+
+
 function generateGrid(x) {
   const pixelTotal = x * x;
   gridContainer.style.gridTemplateRows = `repeat(${x}, 1fr`;

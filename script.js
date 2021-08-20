@@ -8,6 +8,7 @@ const clearBtn = document.querySelector(".clear-btn");
 const range = document.querySelector(".range-input");
 const rangeLabel = document.querySelector(".range-label");
 const rainbowBtn = document.querySelector(".rainbow-input");
+const customBtn = document.querySelector(".color-input")
 let color = "black";
 let rainbow = false;
 
@@ -28,6 +29,10 @@ range.addEventListener("change", (e) => {
 rainbowBtn.addEventListener("click", (e) => {
   rainbowBtn.checked ? rainbow = true : rainbow = false;
   load();
+})
+
+customBtn.addEventListener("change", (e) => {
+  color = customBtn.value;
 })
 
 load();

@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+html {
+  font-family: 'Source Code Pro', monospace;
+}
+body {
+  height: 100vh;
+}
+
 .main {
   display: flex;
   background-color: #3C6E71;
   width: 70vw;
+  margin: 10vh 10vw;
 }
 .controls {
   background-color: #353535;
   width: 12vw;
+  color: white;
 }
 .game-container {
   text-align: center;

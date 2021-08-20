@@ -14,7 +14,7 @@ let rainbow = false;
 
 
 clearBtn.addEventListener("click", (e) => {
-  allPixelsArray.forEach(pixel => pixel.style.backgroundColor = "white")
+  allPixelsArray.forEach(pixel => pixel.style.backgroundColor = "rgb(217, 217, 217)")
 })
 
 range.addEventListener("change", (e) => {

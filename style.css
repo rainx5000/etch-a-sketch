@@ -12,6 +12,8 @@ body {
   background-color: #3C6E71;
   width: fit-content;
   margin: 10vh 10vw;
+  padding-right: 5vw;
+  border-radius: 20px;
 }
 .controls {
   display: flex;
@@ -26,6 +28,15 @@ body {
 }
 .game-container {
   padding: 0px 0px 5vh 5vw;
+}
+.game-container h1 {
+  color: white;
+  letter-spacing: .4rem;
+  font-weight: 400;
+}
+
+.pixel {
+  background-color: rgb(217, 217, 217);
 }
 .clear-btn {
   background-color: rgb(217, 217, 217);

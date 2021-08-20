@@ -1,5 +1,4 @@
 const gridContainer = document.querySelector(".grid-container");
-
 generateGrid(25);
 
 
@@ -8,7 +7,9 @@ let allPixelsArray = Array.from(allPixels);
 const clearBtn = document.querySelector(".clear-btn");
 const range = document.querySelector(".range-input");
 const rangeLabel = document.querySelector(".range-label");
+const rainbowBtn = document.querySelector(".rainbow-input");
 let color = "black";
+let rainbow = false;
 
 
 clearBtn.addEventListener("click", (e) => {
@@ -24,6 +25,11 @@ range.addEventListener("change", (e) => {
   load();
 })
 
+rainbowBtn.addEventListener("click", (e) => {
+  rainbowBtn.checked ? rainbow = true : rainbow = false;
+  load();
+})
+
 load();
 
 function load() {
@@ -32,21 +38,19 @@ function load() {
   allPixelsArray.forEach(pixel => {
     pixel.addEventListener("mousedown", (e) => {
       e.preventDefault();
-      e.target.style.backgroundColor = color;
+      e.target.style.backgroundColor = rainbow ? randomColor() : color;
       allPixelsArray.forEach(pixel => pixel.addEventListener("mouseenter", eventHandler))
     })
   })
   window.addEventListener("mouseup", (e) => {
     allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
   })
-  
+
   const eventHandler = function(e) {
-    e.target.style.backgroundColor = color;
+    e.target.style.backgroundColor = rainbow ? randomColor() : color;
   }
   
 }
-
-
 
 function generateGrid(x) {
   const pixelTotal = x * x;
@@ -57,6 +61,12 @@ function generateGrid(x) {
     pixel.classList.add("pixel");
     gridContainer.append(pixel);
   }
+}
+function randomColor() {
+  function randomVal() {
+    return Math.floor(Math.random()*255) + 1
+  }
+  return `rgb(${randomVal()},${randomVal()},${randomVal()})`
 }
 
 

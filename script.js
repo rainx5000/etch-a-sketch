@@ -1,5 +1,39 @@
 const gridContainer = document.querySelector(".grid-container");
 
+generateGrid(50);
+
+const clearBtn = document.querySelector(".clear-btn");
+const allPixels = document.querySelectorAll(".pixel");
+const allPixelsArray = Array.from(allPixels);
+
+
+penColor("red")
+
+clearBtn.addEventListener("click", (e) => {
+  allPixelsArray.forEach(pixel => pixel.style.backgroundColor = "white")
+})
+
+
+
+
+
+
+function penColor(color) {
+  allPixelsArray.forEach(pixel => {
+    pixel.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      e.target.style.backgroundColor = color;
+      allPixelsArray.forEach(pixel => pixel.addEventListener("mouseenter", eventHandler))
+    })
+  })
+  window.addEventListener("mouseup", (e) => {
+    allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
+  })
+  
+  const eventHandler = function(e) {
+    e.target.style.backgroundColor = color;
+  }
+}
 function generateGrid(x) {
   const pixelTotal = x * x;
   gridContainer.style.gridTemplateRows = `repeat(${x}, 1fr`;
@@ -11,30 +45,5 @@ function generateGrid(x) {
   }
 }
 
-function penColor(color) {
-  const allPixels = document.querySelectorAll(".pixel");
-  const allPixelsArray = Array.from(allPixels)
-  
-  allPixelsArray.forEach(pixel => {
-    pixel.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      e.target.style.backgroundColor = color;
-      allPixelsArray.forEach(pixel => pixel.addEventListener("mouseenter", eventHandler))
-    })
-  })
-  window.addEventListener("mouseup", (e) => {
-    allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
-  })
 
-
-
-  
-  const eventHandler = function(e) {
-    e.target.style.backgroundColor = color;
-  }
-}
-
-
-generateGrid(50);
-penColor("red")
 

@@ -1,8 +1,22 @@
+.main {
+  display: flex;
+  background-color: #3C6E71;
+  width: 70vw;
+}
+.controls {
+  background-color: #353535;
+  width: 12vw;
+}
+.game-container {
+  text-align: center;
+}
+
+
 .grid-container {
   display: grid;;
   background-color: white;
-  height: 700px;
-  width: 700px;
+  height: 600px;
+  width: 600px;
 }
 
 .pixel {

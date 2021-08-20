@@ -11,12 +11,6 @@ function generateGrid(x) {
   }
 }
 
-
-
-
-
-generateGrid(50);
-
 function penColor(color) {
   const allPixels = document.querySelectorAll(".pixel");
   const allPixelsArray = Array.from(allPixels)
@@ -28,16 +22,19 @@ function penColor(color) {
       allPixelsArray.forEach(pixel => pixel.addEventListener("mouseenter", eventHandler))
     })
   })
+  window.addEventListener("mouseup", (e) => {
+    allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
+  })
+
+
+
   
-  for (let pixel of allPixels) {
-    pixel.addEventListener("mouseup", (e) => {
-      allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
-    })
-  }
   const eventHandler = function(e) {
     e.target.style.backgroundColor = color;
   }
 }
 
+
+generateGrid(50);
 penColor("red")
 

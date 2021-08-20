@@ -23,6 +23,10 @@ task-2 -- set up a hover effect where if your mouse goes over the pixel it would
 
   we will do it by changing the background color property using JS
 
+  we will create a pen function, which takes one argument: color. It will take a string of an rgb color
+  we will have an eventlistener that on mouseenter - it will change the color of that pixel to the color we have been given.
+  
+
 task-3 -- add a clear-grid button - which would turn all the pixels back to white 
 
   we will change all the pixels color back to white

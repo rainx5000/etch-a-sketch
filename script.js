@@ -11,4 +11,33 @@ function generateGrid(x) {
   }
 }
 
+
+
+
+
 generateGrid(50);
+
+function penColor(color) {
+  const allPixels = document.querySelectorAll(".pixel");
+  const allPixelsArray = Array.from(allPixels)
+  
+  allPixelsArray.forEach(pixel => {
+    pixel.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      e.target.style.backgroundColor = color;
+      allPixelsArray.forEach(pixel => pixel.addEventListener("mouseenter", eventHandler))
+    })
+  })
+  
+  for (let pixel of allPixels) {
+    pixel.addEventListener("mouseup", (e) => {
+      allPixelsArray.forEach(pixel => pixel.removeEventListener("mouseenter", eventHandler));
+    })
+  }
+  const eventHandler = function(e) {
+    e.target.style.backgroundColor = color;
+  }
+}
+
+penColor("red")
+

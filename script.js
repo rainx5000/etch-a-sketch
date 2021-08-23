@@ -8,7 +8,8 @@ const clearBtn = document.querySelector(".clear-btn");
 const range = document.querySelector(".range-input");
 const rangeLabel = document.querySelector(".range-label");
 const rainbowBtn = document.querySelector(".rainbow-input");
-const customBtn = document.querySelector(".color-input")
+const customBtn = document.querySelector(".color-input");
+const gridLinesInput = document.querySelector(".grid-lines-input")
 let color = "black";
 let rainbow = false;
 
@@ -34,6 +35,12 @@ rainbowBtn.addEventListener("click", (e) => {
 customBtn.addEventListener("change", (e) => {
   color = customBtn.value;
 })
+
+gridLinesInput.addEventListener("click", (e) => {
+  allPixelsArray.forEach(pixel => pixel.classList.toggle("lines"))
+})
+
+
 
 load();
 
@@ -63,7 +70,7 @@ function generateGrid(x) {
   gridContainer.style.gridTemplateColumns = `repeat(${x}, 1fr`;
   for (let i = 1; i <= pixelTotal; i++) {
     const pixel = document.createElement('div');
-    pixel.classList.add("pixel");
+    pixel.classList.add("pixel", "lines");
     gridContainer.append(pixel);
   }
 }

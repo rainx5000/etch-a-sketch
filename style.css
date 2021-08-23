@@ -25,6 +25,7 @@ body {
   color: white;
   font-size: 1.5rem;
   align-items: center;
+  border-right: 10px solid rgb(40, 75, 99);
 }
 .game-container {
   padding: 0px 0px 5vh 5vw;
@@ -35,9 +36,7 @@ body {
   font-weight: 400;
 }
 
-.pixel {
-  background-color: rgb(217, 217, 217);
-}
+
 .clear-btn {
   background-color: rgb(217, 217, 217);
   width: fit-content;
@@ -94,5 +93,9 @@ body {
 }
 
 .pixel {
+  background-color: rgb(217, 217, 217);
+}
+
+.lines {
   border: 1px solid rgba(0, 0, 0, 0.281);
 }
